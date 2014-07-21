@@ -105,7 +105,7 @@ public class RabbitMQSource extends AbstractSource implements Configurable, Poll
                 if( StringUtils.isNotEmpty(_ExchangeName) ) {
                 	try {
         	        	//declare an exchange
-        	        	_Channel.exchangeDeclarePassive(_ExchangeName);  
+        	        	_Channel.exchangeDeclare(_ExchangeName, "topic", true);  
         	        	
         	        	//only grab a default queuename if one is not specified in config
         	        	if( StringUtils.isEmpty( _QueueName ) ) {
